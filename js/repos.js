@@ -16,7 +16,7 @@ $(function() {
       })
 
       $.each(repos.slice(0, limit), function() {
-        $('#repos').append('<li><a href="' + this.url + '">' + this.name + '</a></li>')
+        $('#repos').append('<a href="' + this.url + '">' + this.name + '</a><br />')
       })
     })
   })
