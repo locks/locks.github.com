@@ -10,56 +10,56 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript" defer></script>
 	<script type="text/javascript">
-	  $(function() {
-	    var limit = 10 // how many repos to list
-	    var login = 'locks' // your username
+	$(function() {
+		var limit = 10 // how many repos to list
+		var login = 'locks' // your username
 
-	    $.getJSON('http://github.com/api/v1/json/' + login + '?callback=?', function(data) {
-	      var repos = $.grep(data.user.repositories, function() {
-	        return !this.fork
-	      })
+		$.getJSON('http://github.com/api/v1/json/' + login + '?callback=?', function(data) {
+			var repos = $.grep(data.user.repositories, function() {
+				return !this.fork
+			})
 
-	      repos.sort(function(a, b) {
-	        return b.watchers - a.watchers
-	      })
+			repos.sort(function(a, b) {
+				return b.watchers - a.watchers
+			})
 
-	      $.each(repos.slice(0, limit), function() {
-	        $('#repos').append('<li><a href="' + this.url + '">' + this.name + '</a></li>')
-	      })
-	    })
-	  })
+			$.each(repos.slice(0, limit), function() {
+				$('#repos').append('<li><a href="' + this.url + '">' + this.name + '</a></li>')
+			})
+		})
+	})
 	</script>
 </head>
 
 <body>
 	<a href="http://github.com/locks/arqcp-ptsc"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-		
+
 	<div id="content">
-		
+
 		<div align="center">
 			<img src="http://qrcode.kaywa.com/img.php?s=8&d=http%3A%2F%2Flocks.github.com" alt="qrcode"  />
 		</div>
-		
+
 		<div id="textoo">
 			<h1>Welcome</h1>
-			
+
 			<a href="http://tinylocks.me"><strong>~/locks/</strong></a><br />
 			<a href="http://twitter.com/locks">~/locks/<strong>twitter</strong></a><br />
 			<a href="http://github.com/locks">~/locks/<strong>github</strong></a><br />
 		</div>
-		
+
 		<div id="textoo">
 			<h1>Repositores</h1>
-			
+
 			<ul id="repos">
 			</ul>
-			
+
 			<noscript>
-			This page uses JavaScript to list my repositories.<br />
-			See my profile for the full listing.
+				This page uses JavaScript to list my repositories.<br />
+				See my profile for the full listing.
 			</noscript>
 		</div>
-	
+
 	</div>	
 </body>
 </html>
