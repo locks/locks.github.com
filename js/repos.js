@@ -1,3 +1,7 @@
+/*
+	script by http://defunkt.github.com/
+*/
+
 $(function() {
     var limit = 10 // how many repos to list
     var login = 'locks' // your username
