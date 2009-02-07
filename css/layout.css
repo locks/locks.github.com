@@ -31,3 +31,10 @@ html>body #content {
 a {
 	color: #fff;
 }
+
+fork {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+}
