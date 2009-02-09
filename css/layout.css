@@ -28,6 +28,16 @@ html>body #content {
 	width: 370px; /* ie5win fudge ends */
 	}
 
+#widget {
+	position:fixed;
+	top:0;
+	right:0;
+}
+
+img {
+	border:0;
+}
+
 a {
 	color: #fff;
 }
