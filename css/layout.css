@@ -7,17 +7,17 @@ body {
 	text-align: center;
 	/* part 1 of 2 centering hack */
 	}
-.content {
-	width: 400px; 
+#content {
+	width: 400px;
 	padding: 10px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-right: auto;
-	margin-left: auto; 	
+	margin-left: auto;
 	/* opera does not like 'margin:20px auto' */
 	background: #666;
 	border: 5px solid #ccc;
-	text-align: center; 
+	text-align: center;
 	/* part 2 of 2 centering hack */
 	width: 400px; /* ie5win fudge begins */
 	voice-family: "\"}\"";

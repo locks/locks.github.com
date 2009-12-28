@@ -1,13 +1,8 @@
 $(function() {
   var user = new GitHub.User('locks');
-  user.load('basic', getUser)
+  user.load('repos', getRepos)
 });
 
-function getUser(user) {
-  $('#repos').text('loading...');
-  user.load('repos', getRepos);
-}
-   
 function getRepos(user) {
   var str = ''
 
