@@ -7,6 +7,17 @@ body {
 	text-align: center;
 	/* part 1 of 2 centering hack */
 	}
+
+#nav {
+	top: 0px;
+	margin: auto;
+	width: 965px;
+
+	background: #666;
+	border: 5px solid #ccc;
+	border-top: 0px;
+	text-align: center;
+	}
 #content {
 	width: 400px;
 	padding: 10px;
