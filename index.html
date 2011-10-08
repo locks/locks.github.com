@@ -18,11 +18,11 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
   </script>
 </head>
 
 <body>
+
 	<div id="widget">
 		<a href="http://github.com/locks/locks.github.com/">
 			<img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
@@ -30,7 +30,7 @@
 	</div>
 
 	<div id="content">
-	  <img src="http://qrcode.kaywa.com/img.php?s=8&d=http%3A%2F%2Flocks.github.com" alt="qrcode" />
+	  <div id="qrcode"></div>
 
     <h1>Welcome</h1>
 		
@@ -52,15 +52,87 @@
 		<h1>Creations</h1>
 		<noscript>
 			This page uses JavaScript to list my repositories.<br />
-			See my profile for the full listing.
+			See <a href="http://github.com/locks">my profile</a> for the full listing.
 		</noscript>
 
 		<div id="repos">loading ...</div>
 
 	</div>
-	<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/underscore.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/sugar-0.9.5.min.js"></script>
+
 	<script type="text/javascript" src="js/github.js"></script>
-	<script type="text/javascript" src="js/my_repos.js"></script>
+	<script type="text/javascript" src="js/weld.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  $.fn.weld = function (data, config) {
+      return this.each (function () {
+        weld(this, data, config);
+    });
+};	
+	</script>
+	
+	<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	    
+    $('#qrcode').qrcode("http://locks.github.com");
+	
+	</script>
+	
+	<script type="text/javascript" charset="utf-8" src="js/sammy-0.7.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/mustache.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/plugins/sammy.mustache-0.7.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	var app = Sammy("#repos" , function () {
+  
+    this.use('Mustache','ms');
+    
+    var gh = new GitHub.User('locks')
+
+    this.get('#/' , function (ctx) {
+      gh.load('repos', function (gh) {
+        var R = gh.repos.exclude(function (n) { return n.fork == true })
+            R.Cpp = R['C++']
+            delete R['C++']
+            
+        ctx.langs = _(R).chain()
+                        .groupBy(function (n) { return n.language; })
+                        .tap(function (obj) { obj.Cpp = obj['C+++'] ; delete obj['C++'] ; return obj })
+                        .keys()
+                        .value()
+                        .sort();
+        ctx.repos = R
+            
+        ctx.partial('repositories.ms')
+      })
+    })
+    
+    this.get('#/language/:language' , function (ctx) {
+    console.log( ctx.params.language )
+      gh.load('repos' , function (gh) {
+        var R = gh.repos
+                    .exclude(function (n) { return n.fork == true })
+                    .groupBy('language');
+            R.Cpp = R['C++']
+            delete R['C++']
+        
+        ctx.langs = _.keys(R).sort()
+        ctx.repos = R[ctx.params.language]
+        
+        ctx.partial('repositories.ms')
+      })
+    })
+  
+  })
+
+
+  $(function() {
+//     user = new GitHub.User('locks');
+//     user.load('repos', getRepos)
+    var hello = "hi"
+    app.run('#/')
+  });
+</script>
 	
 	<div style="padding-bottom: 1em;">
 	  <script type="text/javascript"><!--
