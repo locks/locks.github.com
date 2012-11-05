@@ -12,8 +12,8 @@ var githubRepos = Sammy("#repos" , function () {
   }
 
   this.get('/', function (ctx) {
-    $.ajax('https://api.github.com/users/locks/repos?per_page=100').success(function (data) {
-      data = groupLanguages(data)
+    $.getJSON('https://api.github.com/users/locks/repos?per_page=100&callback=?').success(function (data) {
+      data = groupLanguages(data['data'])
 
       ctx.langs = _(data).keys()
       ctx.repos = _.compose(_.flatten, _.values)(data)
@@ -23,8 +23,8 @@ var githubRepos = Sammy("#repos" , function () {
   })
 
   this.get('#/language/:language' , function (ctx) {
-    $.ajax('https://api.github.com/users/locks/repos?per_page=100').success(function (data) {
-      data = groupLanguages(data)
+    $.getJSON('https://api.github.com/users/locks/repos?per_page=100&callback=?').success(function (data) {
+      data = groupLanguages(data['data'])
 
       ctx.langs = _(data).keys()
       ctx.repos = data[ctx.params.language]
