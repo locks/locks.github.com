@@ -1,13 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
-	<title>repositories @ github</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
-	
-	<script type="text/javascript">
+  <title>repositories @ github</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="stylesheets/css3buttons.css" media="screen">
+
+  <script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-4489565-5']);
@@ -22,141 +22,83 @@
 </head>
 
 <body>
+  <div id="widget">
+    <a href="http://github.com/locks/locks.github.com/">
+      <img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+    </a>
+  </div>
 
-	<div id="widget">
-		<a href="http://github.com/locks/locks.github.com/">
-			<img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
-		</a>
-	</div>
-
-	<div id="content">
-	  <div id="qrcode"></div>
+  <div id="content">
+    <div id="qrcode"></div>
 
     <h1>Welcome</h1>
-		
-		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="46" height="23" >
-			<param name="movie" value="http://bandcamp.com/EmbeddedPlayer.swf/album=1492190439/size=short/bgcol=FFFFFF/linkcol=4285BB/" />
-			<param name="quality" value="high" />
-			<param name="allowScriptAccess" value="never" />
-			<param name="allowNetworking" value="always" />
-			<param name="wmode" value="transparent" />
-			<param name="bgcolor" value="#FFFFFF" />
-			<embed src="http://bandcamp.com/EmbeddedPlayer.swf/album=1492190439/size=short/bgcol=FFFFFF/linkcol=4285BB/" width="46" height="23" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality=high allowScriptAccess=never allowNetworking=always wmode=transparent bgcolor=#FFFFFF ></embed>
-			<noembed><a href="http://music.ricardomend.es/album/fretwar-the-early-years">Round 15: Antithesis by Ricardo Mendes</a></noembed>
-		</object>
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="46" height="23" >
+      <param name="movie" value="http://bandcamp.com/EmbeddedPlayer.swf/album=1492190439/size=short/bgcol=FFFFFF/linkcol=4285BB/" />
+      <param name="quality" value="high" />
+      <param name="allowScriptAccess" value="never" />
+      <param name="allowNetworking" value="always" />
+      <param name="wmode" value="transparent" />
+      <param name="bgcolor" value="#FFFFFF" />
+      <embed src="http://bandcamp.com/EmbeddedPlayer.swf/album=1492190439/size=short/bgcol=FFFFFF/linkcol=4285BB/" width="46" height="23" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality=high allowScriptAccess=never allowNetworking=always wmode=transparent bgcolor=#FFFFFF ></embed>
+      <noembed><a href="http://music.ricardomend.es/album/fretwar-the-early-years">Round 15: Antithesis by Ricardo Mendes</a></noembed>
+    </object>
     <p>
-      check out my <a href="http://ricardomend.es">homepage</a><br />
-      or jump to my <a href="http://github.com/locks">github</a><br />
-      <a href='http://coderwall.com/locks'><img src='http://api.coderwall.com/locks/endorsecount.png' /></a>
+      check out my <a href="http://locks.io">homepage</a><br />
+      or jump to my <a href="http://github.com/locks">github</a>
     </p>
+    <p><a href="http://coderwall.com/locks"><img src="http://api.coderwall.com/locks/endorsecount.png"></a></p>
 
-		<h1>Creations</h1>
-		<noscript>
-			This page uses JavaScript to list my repositories.<br />
-			See <a href="http://github.com/locks">my profile</a> for the full listing.
-		</noscript>
+    <h1>Creations</h1>
+    <noscript>
+      This page uses JavaScript to list my repositories.<br />
+      See <a href="http://github.com/locks">my profile</a> for the full listing.
+    </noscript>
 
-		<div id="repos">loading ...</div>
+    <div id="repos"><a href="#" class="button"><span class="loop icon"></span>loading</a></div>
 
-	</div>
-	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/underscore.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/sugar-0.9.5.min.js"></script>
+  </div>
 
-	<script type="text/javascript" src="js/github.js"></script>
-	<script type="text/javascript" src="js/weld.min.js"></script>
-	<script type="text/javascript" charset="utf-8">
-	  $.fn.weld = function (data, config) {
-      return this.each (function () {
-        weld(this, data, config);
-    });
-};	
-	</script>
-	
-	<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
-	<script type="text/javascript" charset="utf-8">
-	    
+  <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+
+  <script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
+  <script type="text/javascript">
     $('#qrcode').qrcode("http://locks.github.com");
-	
-	</script>
-	
-	<script type="text/javascript" charset="utf-8" src="js/sammy-0.7.0.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="js/mustache.js"></script>
-	<script type="text/javascript" charset="utf-8" src="js/plugins/sammy.mustache-0.7.0.min.js"></script>
-	<script type="text/javascript" charset="utf-8">
-	var app = Sammy("#repos" , function () {
-  
-    this.use('Mustache','ms');
-    
-    var gh = new GitHub.User('locks')
-
-    this.get('#/' , function (ctx) {
-      gh.load('repos', function (gh) {
-        var R = gh.repos.exclude(function (n) { return n.fork == true })
-            R.Cpp = R['C++']
-            delete R['C++']
-            
-        ctx.langs = _(R).chain()
-                        .groupBy(function (n) { return n.language; })
-                        .tap(function (obj) { obj.Cpp = obj['C+++'] ; delete obj['C++'] ; return obj })
-                        .keys()
-                        .value()
-                        .sort();
-        ctx.repos = R
-            
-        ctx.partial('repositories.ms')
-      })
-    })
-    
-    this.get('#/language/:language' , function (ctx) {
-    console.log( ctx.params.language )
-      gh.load('repos' , function (gh) {
-        var R = gh.repos
-                    .exclude(function (n) { return n.fork == true })
-                    .groupBy('language');
-            R.Cpp = R['C++']
-            delete R['C++']
-        
-        ctx.langs = _.keys(R).sort()
-        ctx.repos = R[ctx.params.language]
-        
-        ctx.partial('repositories.ms')
-      })
-    })
-  
-  })
-
-
-  $(function() {
-//     user = new GitHub.User('locks');
-//     user.load('repos', getRepos)
-    var hello = "hi"
-    app.run('#/')
-  });
-</script>
-	
-	<div style="padding-bottom: 1em;">
-	  <script type="text/javascript"><!--
-  google_ad_client = "pub-3501488223799876";
-  /* github */
-  google_ad_slot = "6378492268";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
   </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
-	</div>
 
-	<div align="center" style="font-size: 70%">
-		hosted on <a href='http://github.com'>github</a> |
-		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/pt/">
-			<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/2.5/pt/80x15.png" />
-		</a>
-		| design by <a href='http://ricardomend.es'>locks</a>
-	</div>
-	
-  
+  <script type="text/javascript" src="js/sammy-0.7.0.min.js"></script>
+  <script type="text/javascript" src="js/mustache.js"></script>
+  <script type="text/javascript" src="js/plugins/sammy.mustache-0.7.0.min.js"></script>
+  <script type="text/javascript" src="/js/github_repos.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      githubRepos.run('#/')
+    });
+  </script>
+
+  <div style="padding-bottom: 1em;">
+    <script type="text/javascript"><!--
+      google_ad_client = "pub-3501488223799876";
+      /* github */
+      google_ad_slot = "6378492268";
+      google_ad_width = 728;
+      google_ad_height = 90;
+      //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+
+  <div align="center" style="font-size: 70%">
+    hosted on <a href='http://github.com'>github</a> |
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/pt/">
+      <img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-sa/2.5/pt/80x15.png" />
+    </a>
+    | design by <a href='http://ricardomend.es'>locks</a>
+  </div>
+
+
 </body>
 </html>
