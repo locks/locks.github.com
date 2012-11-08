@@ -1,8 +1,4 @@
-<p>
-  <a href="#/" class="primary pill button">all</a>
-</p>
-
-{{#langs}}<a href="#/language/{{.}}" class="pill button middle">{{.}}</a>{{/langs}}
+<a href="#/" class="primary positive middle pill button">all</a>{{#langs}}<a href="#/{{.}}" class="pill button middle">{{.}}</a>{{/langs}}
 
 <hr>
 
@@ -49,4 +45,5 @@
     &nbsp;
   </li>
 {{/repos}}
+
 </ul>
